@@ -1,15 +1,11 @@
 Feature: Test on the Globomantics Categories API
 
   Background:
-    * url 'http://localhost:8080/api/'
+    * url apiUrl
 
-    Given path 'authenticate'
-    And request '{"username": "admin", "password": "admin"}'
-    And header Content-Type = 'application/json'
-    When method post
-    Then status 200
-    * def token = response.token
-    * print 'Value of the token: ' + token
+    * def tokenResponse = callonce read('classpath:helpers/authToken.feature')
+
+    * def token = tokenResponse.token
 
   Scenario: Get all categories
     Given path 'category'
@@ -30,7 +26,7 @@ Feature: Test on the Globomantics Categories API
     Then status 200
     And match response.name == categoryName
     * def categoryId = response.id
-
+    
     Given path 'category', categoryId
     When method get
     Then status 200
@@ -58,5 +54,5 @@ Feature: Test on the Globomantics Categories API
     And header Content-Type = 'application/json'
     When method delete
     Then status 200
-    And match response == "Category: " + categoryNameUpdated + " deleted successfully"
+    And match response == "Category: " + categoryNameUpdated + " deleted successfully" 
 
