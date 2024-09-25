@@ -3,6 +3,7 @@ Feature: Test on the Globomantics Products API
 
     Background:
         * url apiUrl
+        * def testDataGenerator = Java.type('helpers.TestDataGenerator')
 
         # * def tokenResponse = callonce read('classpath:helpers/authToken.feature')
         # * def token = tokenResponse.token
@@ -30,6 +31,21 @@ Feature: Test on the Globomantics Products API
 
         # Schema validation
         And match each response == productSchema
+
+    Scenario: Create product with faker
+
+        * def productName = testDataGenerator.getRandomProductName()
+        * set productRequestBody.name = productName
+
+        #    Create product
+        Given path 'product'
+        # And header Authorization = 'Bearer ' + token
+        And header Content-Type = 'application/json'
+        And request productRequestBody
+        When method post
+        Then status 200
+        And match response.name == productName
+        * def productId = response.id
 
     Scenario: Create and Delete product
 
