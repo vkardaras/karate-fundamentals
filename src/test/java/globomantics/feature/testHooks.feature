@@ -15,7 +15,7 @@ Feature: Test hooks
         function() {
             karate.log('Feature completed')
             var testValue = 31
-            karate.call('classpath:helpers/PringMessage.feature', { auditProcessId: testValue})
+            karate.call('classpath:helpers/PrintMessage.feature')
         }
         """
 
