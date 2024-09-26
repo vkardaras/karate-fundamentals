@@ -1,0 +1,30 @@
+[
+    {
+        "name": "productName11",
+        "description": "desc1",
+        "price": "19.96",
+        "categoryId": "1",
+        "inStock":true
+    },
+    {
+        "name": "productName12",
+        "description": "desc2",
+        "price": "19.97",
+        "categoryId": "1",
+        "inStock":true
+    },
+    {
+        "name": "productName13",
+        "description": "desc3",
+        "price": "19.98",
+        "categoryId": "2",
+        "inStock":false
+    },
+    {
+        "name": "productName14",
+        "description": "desc4",
+        "price": "19.99",
+        "categoryId": "2",
+        "inStock":false
+    }
+]

@@ -1,0 +1,5 @@
+name,description,price,categoryId,inStock
+"productName1","desc1","19.96","1",true
+"productName2","desc2","19.97","1",true
+"productName3","desc3","19.98","2",false
+"productName4","desc4","19.99","2",false
